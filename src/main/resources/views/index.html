@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Index</title>
+    <link href="/public/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/public/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="/public/js/jquery-3.3.1.min.js"></script>
+    <script src="/public/js/bootstrap.js"></script>
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.1/css/jquery.dataTables.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css "/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/1.0.0/css/dataTables.responsive.css"/>
+
+
+    <script src="https://cdn.datatables.net/1.10.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/1.0.0/js/dataTables.responsive.js"></script>
+
+    <style>
+        .container {
+            background: none;
+        }
+
+        .table {
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <table class="datatable table table-striped table-bordered" id="beadTable">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Width</th>
+            <th>Thread Width</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+
+<script>
+    $(document).ready(function () {
+        $('#beadTable').DataTable({
+                sPaginationType: "full_numbers",
+                serverSide: true,
+                processing: true,
+                ordering: true,
+                searching: true,
+                ajax: {
+                    url: 'http://localhost:8080/bead/list',
+                    type: 'GET',
+                    datatype: 'json',
+                    columns: [
+                        {data: "Name", "name": "Name", orderable: true, searchable: true},
+                        {data: "Color", "name": "Color", orderable: true, searchable: true},
+                        {data: "Width", "name": "Width", orderable: true, searchable: true},
+                        {data: "Thread Width", "name": "Thread Width", orderable: true, searchable: true}
+                    ],
+                    order: [0, 'asc']
+                }
+            }
+        );
+    });
+</script>
+
+</html>

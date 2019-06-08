@@ -1,0 +1,30 @@
+micronaut:
+  application:
+    name: datatable-example
+
+  router:
+    static-resources:
+      default:
+        enabled: true
+        mapping: "/public/**"
+        paths: "classpath:public"
+
+#Database
+dataSource:
+  pooled: true
+  jmxExport: true
+  url: "jdbc:postgresql://localhost:5432/testdb"
+  driverClassName: org.postgresql.Driver
+  username: "postgres"
+  password: "root"
+
+#Hibernate
+hibernate:
+  hbm2ddl:
+    auto: update
+  cache:
+    queries: false
+    use_second_level_cache: false
+    use_query_cache: false
+    #region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+    #dialect: org.hibernate.dialect.PostgreSQLDialect
