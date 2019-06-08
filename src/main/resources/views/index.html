@@ -53,23 +53,20 @@
 
 <script>
     $(document).ready(function () {
-        $('#beadTable').DataTable({
+        var table = $('#beadTable').DataTable({
                 sPaginationType: "full_numbers",
                 serverSide: true,
                 processing: true,
-                ordering: true,
-                searching: true,
                 ajax: {
                     url: 'http://localhost:8080/bead/list',
                     type: 'GET',
                     datatype: 'json',
                     columns: [
-                        {data: "Name", "name": "Name", orderable: true, searchable: true},
-                        {data: "Color", "name": "Color", orderable: true, searchable: true},
-                        {data: "Width", "name": "Width", orderable: true, searchable: true},
-                        {data: "Thread Width", "name": "Thread Width", orderable: true, searchable: true}
-                    ],
-                    order: [0, 'asc']
+                        {data: "Name", "name": "Name"},
+                        {data: "Color", "name": "Color"},
+                        {data: "Width", "name": "Width"},
+                        {data: "Thread Width", "name": "Thread Width"}
+                    ]
                 }
             }
         );
