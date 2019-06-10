@@ -41,7 +41,6 @@ class BeadService {
         int beadCount = Bead.list().size()
         List<String> dataRow = []
         List<List> beadData = []
-        String noRecordFound = "No record found"
         if (beadList) {
             beadList.each { bead ->
                 dataRow << bead.name
@@ -53,7 +52,7 @@ class BeadService {
             }
             return [data: beadData, recordsTotal: beadCount, recordsFiltered: beadCount]
         }
-        return [data: [""], recordsTotal: beadCount, recordsFiltered: 0]
+        return [data: [[null, null, null, null]], recordsTotal: beadCount, recordsFiltered: 0]
     }
 
     PaginationCO generatePaginationCO(HttpRequest httpRequest) {
