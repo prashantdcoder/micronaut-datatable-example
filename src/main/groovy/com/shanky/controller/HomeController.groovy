@@ -1,7 +1,6 @@
 package com.shanky.controller
 
 import com.shanky.service.BeadService
-import io.micronaut.http.HttpParameters
 import io.micronaut.http.HttpRequest
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.Controller
@@ -23,7 +22,7 @@ class HomeController {
     }
 
     @Get(value = "/bead/list")
-    HttpResponse beadList(HttpRequest httpRequest, HttpParameters httpParameters) {
+    HttpResponse beadList(HttpRequest httpRequest) {
         return HttpResponse.ok(beadService.beadList(httpRequest))
     }
 }

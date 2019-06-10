@@ -13,9 +13,8 @@
     </style>
 </head>
 <body>
-
-<div th:replace="header :: header"></div>
 <div class="container">
+    <div th:replace="header :: header"></div>
     <table class="datatable table table-striped table-bordered" id="beadTable">
         <thead>
         <tr>
@@ -26,17 +25,14 @@
         </tr>
         </thead>
         <tbody>
-
         </tbody>
     </table>
+    <div th:replace="footer :: footer"></div>
 </div>
-<div th:replace="footer :: footer"></div>
-
 </body>
 <script>
     $(document).ready(function () {
         var table = $('#beadTable').DataTable({
-                sPaginationType: "full_numbers",
                 serverSide: true,
                 processing: true,
                 ajax: {
