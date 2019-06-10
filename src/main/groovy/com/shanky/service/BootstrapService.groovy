@@ -33,6 +33,18 @@ class BootstrapService {
             beadList << new Bead(color: 'Pink', width: generateRandomWidth(100, 500), threadWidth: generateRandomWidth(10, 100), name: 'Eureka')
             beadList << new Bead(color: 'Pink', width: generateRandomWidth(100, 500), threadWidth: generateRandomWidth(10, 100), name: 'DeepDene')
 
+            beadList << new Bead(color: 'Green', width: generateRandomWidth(100, 500), threadWidth: generateRandomWidth(10, 100), name: 'Dresden')
+            beadList << new Bead(color: 'Green', width: generateRandomWidth(100, 500), threadWidth: generateRandomWidth(10, 100), name: 'Ocean Dream')
+            beadList << new Bead(color: 'Green', width: generateRandomWidth(100, 500), threadWidth: generateRandomWidth(10, 100), name: 'Holland')
+            beadList << new Bead(color: 'Green', width: generateRandomWidth(100, 500), threadWidth: generateRandomWidth(10, 100), name: 'Skull Star')
+            beadList << new Bead(color: 'Green', width: generateRandomWidth(100, 500), threadWidth: generateRandomWidth(10, 100), name: 'Graff')
+
+            beadList << new Bead(color: 'Red', width: generateRandomWidth(100, 500), threadWidth: generateRandomWidth(10, 100), name: 'Allnatt')
+            beadList << new Bead(color: 'Red', width: generateRandomWidth(100, 500), threadWidth: generateRandomWidth(10, 100), name: 'Moussaieff')
+            beadList << new Bead(color: 'Red', width: generateRandomWidth(100, 500), threadWidth: generateRandomWidth(10, 100), name: 'Wittelsbach')
+            beadList << new Bead(color: 'Red', width: generateRandomWidth(100, 500), threadWidth: generateRandomWidth(10, 100), name: 'Steinmetz')
+            beadList << new Bead(color: 'Red', width: generateRandomWidth(100, 500), threadWidth: generateRandomWidth(10, 100), name: 'De Beers Centenary')
+
             beadList*.save()
         }
     }
