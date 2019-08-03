@@ -16,7 +16,7 @@ class BeadService {
 
 
     List<Bead> filteredBeadList(PaginationCO paginationCO) {
-        List<Bead> beadList = Bead.createCriteria().list(offset: paginationCO.start, max: paginationCO.length + paginationCO.start) {
+        List<Bead> beadList = Bead.createCriteria().list(max: paginationCO.length, offset: (paginationCO.length * paginationCO.start)) {
             or {
                 if (paginationCO.search) {
                     ilike('name', "%${paginationCO.search.trim()}%")
@@ -56,12 +56,14 @@ class BeadService {
     }
 
     PaginationCO generatePaginationCO(HttpRequest httpRequest) {
-        String[] direction = httpRequest.getParameters().asMap().get("order[0][dir]")
-        String[] search = httpRequest.getParameters().asMap().get("search[value]")
-        String[] columnIndex = httpRequest.getParameters().asMap().get("order[0][column]")
-        int start = httpRequest.getParameters().asMap().get("start").join("").toInteger()
-        int length = httpRequest.getParameters().asMap().get("length").join("").toInteger()
+        String[] direction = httpRequest?.getParameters()?.asMap()?.get("order[0][dir]")
+        String[] search = httpRequest?.getParameters()?.asMap()?.get("search[value]")
+        String[] columnIndex = httpRequest?.getParameters()?.asMap()?.get("order[0][column]")
+        int start = httpRequest?.getParameters()?.asMap()?.get("start")?.join("")?.toInteger()
+        int length = httpRequest?.getParameters()?.asMap()?.get("length")?.join("")?.toInteger()
         PaginationCO paginationCO = new PaginationCO(start: start, length: length, search: search.join(""), columnIndex: columnIndex.join("").toLong(), direction: direction.join(""))
         return paginationCO
     }
+
+
 }

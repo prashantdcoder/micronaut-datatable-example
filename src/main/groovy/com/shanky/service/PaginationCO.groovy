@@ -1,9 +1,9 @@
 package com.shanky.service
 
 class PaginationCO {
-    int start
-    int length
+    Integer start
+    Integer length
     String search
-    String direction
-    Long columnIndex
+    String direction = 'asc'
+    Long columnIndex = 0
 }
